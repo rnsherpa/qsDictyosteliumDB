@@ -1,0 +1,149 @@
+{% extends "db_app/base.html" %}
+{% block content %}
+
+<div class="container">    
+    <div class="content-section">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <h6>Species</h6>
+                        <div class="card" style="width:16rem;height:8rem;">
+                            <div class="overflow-auto">
+                                <div class="card-body">
+                                    {% for species in speciesList %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{ species.species }}" id="{{ species.species }}">
+                                            <label class="form-check-label" style="font-size: small;" for="{{ species.species }}">{{ species.species }}</label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <h6>Paraburkholderia Symbiont</h6>
+                        <div class="card" style="width:16rem;height:8rem;">   
+                            <div class="overflow-auto">
+                                <div class="card-body">
+                                    {% for burkSpecies in burkList %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ burkSpecies.burkSpecies }}" id="{{ burkSpecies.burkSpecies }}">
+                                        <label class="form-check-label" style="font-size: small;" for="{{ burkSpecies.burkSpecies }}">{{ burkSpecies.burkSpecies }}</label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>    
+                        </div>    
+                    </div>
+                </div>    
+                <div class="col align-self-end">
+                    <button type="button" class="btn btn-secondary float-right">Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>   
+
+<div class="container-fluid" style="max-width:1800px">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_clones.csv')">Export to CSV</button>
+        <div class="table-responsive-xl">
+            <table class="table table-sm">
+                <thead class="thead-light">
+                    <tr>    
+                        <th scope="col">QSID</th>
+                        <th scope="col">Alternate ID</th>
+                        <th scope="col">Species</th>
+                        <th scope="col">Origin Location</th>
+                        <th scope="col">Origin Coordinates</th>
+                        <th scope="col">Box Plated From</th>
+                        <th scope="col">Date Collected</th>
+                        <th scope="col">Date Frozen</th>
+                        <th scope="col">Collection Method</th>
+                        <th scope="col">Culture Method</th>
+                        <th scope="col">Origin Soil Sample</th>
+                        <th scope="col">Location in Freezer</th>
+                        <th scope="col">Box Name</th>
+                        <th scope="col">Box Initials</th>
+                        <th scope="col">Clonal</th>
+                        <th scope="col">violHapGrp</th>
+                        <th scope="col">Sequenced</th>
+                        <th scope="col">Amoebophilis Endosymbiont</th>
+                        <th scope="col">Neochlamydia Endosymbiont</th>
+                        <th scope="col">Neochlamydia Haplotype</th>
+                        <th scope="col">Endosymbiont Haplotype ID</th>
+                        <th scope="col">Endosymbiont 16S Sequence Hit</th>
+                        <th scope="col">Burkholderia Species</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for clone in clones %}  
+                        <tr>
+                            <td><a href="/clones/{{ clone.qsID }}">{{ clone.qsID }}</a></td>
+                            <td>{{ clone.altID }}</td>
+                            <td>{{ clone.species }}</td>
+                            <td>{{ clone.origin }}</td>
+                            <td>{{ clone.originCoords }}</td>
+                            <td>{{ clone.boxPlatedFrom }}</td>
+                            <td>{{ clone.collectDate }}</td>
+                            <td>{{ clone.freezeDate }}</td>
+                            <td>{{ clone.collectMethod }}</td>
+                            <td>{{ clone.cultureMethod }}</td>
+                            <td>{{ clone.originSoilSample }}</td>
+                            <td>{{ clone.freezerLoc }}</td>
+                            <td>{{ clone.boxName }}</td>
+                            <td>{{ clone.boxInitials }}</td>
+                            <td>{{ clone.isClonal }}</td>
+                            <td>{{ clone.violHapGrp }}</td>
+                            <td>{{ clone.sequenced }}</td>
+                            <td>{{ clone.isAmo }}</td>
+                            <td>{{ clone.isChlam }}</td>
+                            <td>{{ clone.chlamHap }}</td>
+                            <td>{{ clone.endoHapID }}</td>
+                            <td>{{ clone.endoSeqHit }}</td>
+                            <td>{{ clone.burkSpecies }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>   
+            </table>
+            <nav aria-label="Clone table navigation">
+                {% if clones.has_other_pages %}
+                    <ul class="pagination">
+                        {% if clones.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ clones.previous_page_number }}">&laquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&laquo;</span></a>
+                            </li>
+                        {% endif %}
+                        {% for i in clones.paginator.page_range %}
+                            {% if clones.number == i %}
+                                <li class="page-item active">
+                                    <a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
+                                </li>
+                            {% else %}
+                                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if clones.has_next %}
+                            <li>
+                                <a class="page-link" href="?page={{ clones.next_page_number }}">&raquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&raquo;</span></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</div>     
+
+{% endblock content %}
