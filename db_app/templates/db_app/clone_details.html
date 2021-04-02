@@ -38,66 +38,11 @@
             <p>Associated papers:</p>
             <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_papers.csv')">Export to CSV</button>
         </div>
-        <div class="table-responsive-xl">
-            <table class="table table-sm">
-                <thead class="thead-light">
-                    <tr>    
-                        <th scope="col">DOI</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">First Author</th>
-                        <th scope="col">Last Author</th>
-                        <th scope="col">Journal</th>
-                        <th scope="col">Year</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for paper in papers %}  
-                        <tr>
-                            <td>{{ paper.doi }}</td>
-                            <td>{{ paper.title }}</td>
-                            <td>{{ paper.firstAuthor }}</td>
-                            <td>{{ paper.lastAuthor }}</td>
-                            <td>{{ paper.journal }}</td>
-                            <td>{{ paper.year }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>   
-            </table>
-            <nav aria-label="Paper table navigation">
-                {% if papers.has_other_pages %}
-                    <ul class="pagination">
-                        {% if papers.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ papers.previous_page_number }}">&laquo;</a>
-                            </li>
-                        {% else %}
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&laquo;</span></a>
-                            </li>
-                        {% endif %}
-                        {% for i in papers.paginator.page_range %}
-                            {% if papers.number == i %}
-                                <li class="page-item active">
-                                    <a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
-                                </li>
-                            {% else %}
-                                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                        {% if papers.has_next %}
-                            <li>
-                                <a class="page-link" href="?page={{ papers.next_page_number }}">&raquo;</a>
-                            </li>
-                        {% else %}
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&raquo;</span></a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                {% endif %}
-            </nav>
-        </div>
+
+        {% block paper_table %}
+            {% include "db_app/paper_table.html" %}
+        {% endblock %}
+        
     </div>
 </div>  
 {% endblock content %}
