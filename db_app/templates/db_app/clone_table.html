@@ -11,18 +11,18 @@
                         <th scope="col">Alternate ID</th>
                         <th scope="col">Species</th>
                         <th scope="col">Origin Location</th>
-                        <th scope="col">Origin Coordinates</th>
-                        <th scope="col">Box Plated From</th>
+                        <th scope="col" style="display:none;">Origin Coordinates</th>
+                        <th scope="col" style="display:none;">Box Plated From</th>
                         <th scope="col">Date Collected</th>
                         <th scope="col">Date Frozen</th>
                         <th scope="col">Collection Method</th>
-                        <th scope="col">Culture Method</th>
+                        <th scope="col" style="display:none;">Culture Method</th>
                         <th scope="col">Origin Soil Sample</th>
-                        <th scope="col">Location in Freezer</th>
-                        <th scope="col">Box Name</th>
-                        <th scope="col">Box Initials</th>
+                        <th scope="col" style="display:none;">Location in Freezer</th>
+                        <th scope="col" style="display:none;">Box Name</th>
+                        <th scope="col" style="display:none;">Box Initials</th>
                         <th scope="col">Clonal</th>
-                        <th scope="col">violHapGrp</th>
+                        <th scope="col" style="display:none;">violHapGrp</th>
                         <th scope="col">Sequenced</th>
                         <th scope="col">Amoebophilis Endosymbiont</th>
                         <th scope="col">Neochlamydia Endosymbiont</th>
@@ -39,21 +39,21 @@
                             <td>{{ clone.altID }}</td>
                             <td>{{ clone.species }}</td>
                             <td>{{ clone.origin }}</td>
-                            <td>{{ clone.originCoords }}</td>
-                            <td>{{ clone.boxPlatedFrom }}</td>
-                            <td>{{ clone.collectDate }}</td>
-                            <td>{{ clone.freezeDate }}</td>
+                            <td style="display:none;">{{ clone.originCoords }}</td>
+                            <td style="display:none;">{{ clone.boxPlatedFrom }}</td>
+                            <td>{{ clone.collectDate|default_if_none:"&nbsp;" }}</td>
+                            <td>{{ clone.freezeDate|default_if_none:"&nbsp;" }}</td>
                             <td>{{ clone.collectMethod }}</td>
-                            <td>{{ clone.cultureMethod }}</td>
+                            <td style="display:none;">{{ clone.cultureMethod }}</td>
                             <td>{{ clone.originSoilSample }}</td>
-                            <td>{{ clone.freezerLoc }}</td>
-                            <td>{{ clone.boxName }}</td>
-                            <td>{{ clone.boxInitials }}</td>
-                            <td>{{ clone.isClonal }}</td>
-                            <td>{{ clone.violHapGrp }}</td>
+                            <td style="display:none;">{{ clone.freezerLoc }}</td>
+                            <td style="display:none;">{{ clone.boxName }}</td>
+                            <td style="display:none;">{{ clone.boxInitials }}</td>
+                            <td>{{ clone.isClonal|default_if_none:"&nbsp;" }}</td>
+                            <td style="display:none;">{{ clone.violHapGrp }}</td>
                             <td>{{ clone.sequenced }}</td>
-                            <td>{{ clone.isAmo }}</td>
-                            <td>{{ clone.isChlam }}</td>
+                            <td>{{ clone.isAmo|default_if_none:"&nbsp;" }}</td>
+                            <td>{{ clone.isChlam|default_if_none:"&nbsp;" }}</td>
                             <td>{{ clone.chlamHap }}</td>
                             <td>{{ clone.endoHapID }}</td>
                             <td>{{ clone.endoSeqHit }}</td>

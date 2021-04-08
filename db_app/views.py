@@ -72,6 +72,9 @@ def stats(request):
     context = {'paperCount': paperCount}
     return render(request, "db_app/stats.html", context)
 
+def about(request):
+    return render(request, "db_app/about.html")
+
 # def searchClone(request):
 #     return redirect(reverse(searchClone) + '')
 
