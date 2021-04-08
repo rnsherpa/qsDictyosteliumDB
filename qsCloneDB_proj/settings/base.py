@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['128.252.93.204', 'localhost']
+ALLOWED_HOSTS = ['qsdictydb.wustl.edu', '128.252.93.204', 'localhost']
 
 
 # Application definition
