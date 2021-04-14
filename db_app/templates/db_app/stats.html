@@ -5,7 +5,7 @@
     <div class="content-section">
         <h6>Most used clones (by appearances in papers): </h6>
         {% for clone in paperCount %}
-            <li><a href="/clones/{{ clone.qsID }}">{{ clone }}</a>: {{ clone.num_papers }}</li>
+            <li><a href="/clones/{{ clone.qs_id }}">{{ clone }}</a>: {{ clone.num_papers }}</li>
         {% endfor %}
     </div>
 </div>

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse
+import csv
+from django.shortcuts import render
 from .models import Clone, Paper
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -18,7 +19,7 @@ def clones(request):
         clones = paginator.page(paginator.num_pages)
 
     speciesList = Clone.objects.order_by('species').values('species').distinct() # get a list of the species from the Clone model
-    burkList = Clone.objects.order_by('burkSpecies').values('burkSpecies').distinct().exclude(burkSpecies__exact='')
+    burkList = Clone.objects.order_by('burk_species').values('burk_species').distinct().exclude(burk_species__exact='')
 
     context = {'clones': clones, 'speciesList': speciesList, 'burkList': burkList}
     return render(request, 'db_app/clones.html', context)
@@ -38,7 +39,7 @@ def papers(request):
     return render(request, 'db_app/papers.html', context)
 
 def dynamic_clone_view(request, qsid):
-    clone = Clone.objects.get(qsID__iexact=qsid) #__iexact: removes case sensitivity
+    clone = Clone.objects.get(qs_id__iexact=qsid) #__iexact: removes case sensitivity
     papers_containing_clone = clone.paper_set.all() #set of papers that have used a given clone
     page = request.GET.get('page', 1)
     paginator = Paginator(papers_containing_clone, 10) # 10 papers per page

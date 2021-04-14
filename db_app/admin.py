@@ -14,20 +14,20 @@ class PaperResource(resources.ModelResource):
 
     clones = fields.Field(
         attribute='clones',
-        widget=ManyToManyWidget(Clone, field='qsID')
+        widget=ManyToManyWidget(Clone, field='qs_id')
     )
     
     class Meta:
         model = Paper
         import_id_fields = ['index']
-        fields = ('index','doi','title','firstAuthor','lastAuthor','journal','year')
+        fields = ('index','doi','title','first_author','last_author','journal','year')
     
 
 class CloneAdmin(ImportExportModelAdmin):
     resource_class = CloneResource
 
 class PaperAdmin(ImportExportModelAdmin):
-    list_display = ('doi','title','firstAuthor','lastAuthor','journal','year')
+    list_display = ('doi','title','first_author','last_author','journal','year')
 
     resource_class = PaperResource
 
