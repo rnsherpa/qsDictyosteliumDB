@@ -38,8 +38,8 @@ def papers(request):
     context = {'papers': papers}
     return render(request, 'db_app/papers.html', context)
 
-def dynamic_clone_view(request, qsid):
-    clone = Clone.objects.get(qs_id__iexact=qsid) #__iexact: removes case sensitivity
+def dynamic_clone_view(request, qs_id):
+    clone = Clone.objects.get(qs_id__iexact=qs_id) #__iexact: removes case sensitivity
     papers_containing_clone = clone.paper_set.all() #set of papers that have used a given clone
     page = request.GET.get('page', 1)
     paginator = Paginator(papers_containing_clone, 10) # 10 papers per page
