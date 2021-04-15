@@ -9,6 +9,18 @@ def home(request):
 
 def clones(request):
     cloneModel = Clone.objects.all() # get all clone data
+    
+    # these receive the filter entries
+    dicty_species_query = request.GET.get('dicty_species')
+    burk_species_query = request.GET.get('burk_species')
+    
+    # we only want to filter if we are receiving filter entries
+    if dicty_species_query !='' and dicty_species_query is not None:
+        cloneModel = cloneModel.filter(species=dicty_species_query)
+    
+    if burk_species_query !='' and burk_species_query is not None:
+        cloneModel = cloneModel.filter(burk_species=burk_species_query)
+
     page = request.GET.get('page', 1)
     paginator = Paginator(cloneModel, 10) # 10 clones per page
     try:

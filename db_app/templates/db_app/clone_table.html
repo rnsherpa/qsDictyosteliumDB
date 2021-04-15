@@ -26,9 +26,9 @@
                         <th scope="col">Sequenced</th>
                         <th scope="col">Amoebophilis Endosymbiont</th>
                         <th scope="col">Neochlamydia Endosymbiont</th>
-                        <th scope="col">Neochlamydia Haplotype</th>
-                        <th scope="col">Endosymbiont Haplotype ID</th>
-                        <th scope="col">Endosymbiont 16S Sequence Hit</th>
+                        <th scope="col" style="display:none;">Neochlamydia Haplotype</th>
+                        <th scope="col" style="display:none;">Endosymbiont Haplotype ID</th>
+                        <th scope="col" style="display:none;">Endosymbiont 16S Sequence Hit</th>
                         <th scope="col">Burkholderia Species</th>
                     </tr>
                 </thead>
@@ -54,9 +54,9 @@
                             <td>{{ clone.sequenced }}</td>
                             <td>{{ clone.is_amo|default_if_none:"&nbsp;" }}</td>
                             <td>{{ clone.is_chlam|default_if_none:"&nbsp;" }}</td>
-                            <td>{{ clone.chlam_hap }}</td>
-                            <td>{{ clone.endo_hap_id }}</td>
-                            <td>{{ clone.endo_seq_hit }}</td>
+                            <td style="display:none;">{{ clone.chlam_hap }}</td>
+                            <td style="display:none;">{{ clone.endo_hap_id }}</td>
+                            <td style="display:none;">{{ clone.endo_seq_hit }}</td>
                             <td>{{ clone.burk_species }}</td>
                         </tr>
                     {% endfor %}
