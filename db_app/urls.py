@@ -9,5 +9,4 @@ urlpatterns = [
     path('about/', views.about, name='db-about'),
     path('clones/<str:qs_id>/', views.dynamic_clone_view, name='clone-details'), #clone url generation
     path('papers/<str:index>/', views.dynamic_paper_view, name='paper-details'), #clone url generation
-    # re_path('^clones/$', views.searchClone, name='clone-search')
 ]

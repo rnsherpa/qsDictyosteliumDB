@@ -2,70 +2,70 @@
 {% load bootstrap_pagination %}
 
 <div class="container-fluid" style="max-width:1800px">
-    <div class="col-md-12">
-        <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_clones.csv')">Export to CSV</button>
-        <div class="table-responsive-xl">
-            <table class="table table-sm">
-                <thead class="thead-light">
-                    <tr>    
-                        <th scope="col">QSID</th>
-                        <th scope="col">Alternate ID</th>
-                        <th scope="col">Species</th>
-                        <th scope="col">Origin Location</th>
-                        <th scope="col" style="display:none;">Origin Coordinates</th>
-                        <th scope="col" style="display:none;">Box Plated From</th>
-                        <th scope="col">Date Collected</th>
-                        <th scope="col">Date Frozen</th>
-                        <th scope="col">Collection Method</th>
-                        <th scope="col" style="display:none;">Culture Method</th>
-                        <th scope="col">Origin Soil Sample</th>
-                        <th scope="col" style="display:none;">Location in Freezer</th>
-                        <th scope="col" style="display:none;">Box Name</th>
-                        <th scope="col" style="display:none;">Box Initials</th>
-                        <th scope="col">Clonal</th>
-                        <th scope="col" style="display:none;">violHapGrp</th>
-                        <th scope="col">Sequenced</th>
-                        <th scope="col">Amoebophilis Endosymbiont</th>
-                        <th scope="col">Neochlamydia Endosymbiont</th>
-                        <th scope="col" style="display:none;">Neochlamydia Haplotype</th>
-                        <th scope="col" style="display:none;">Endosymbiont Haplotype ID</th>
-                        <th scope="col" style="display:none;">Endosymbiont 16S Sequence Hit</th>
-                        <th scope="col">Burkholderia Species</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for clone in clones %}  
-                        <tr>
-                            <td><a href="/clones/{{ clone.qs_id }}">{{ clone.qs_id }}</a></td>
-                            <td>{{ clone.alt_id }}</td>
-                            <td>{{ clone.species }}</td>
-                            <td>{{ clone.origin }}</td>
-                            <td style="display:none;">{{ clone.origin_coords }}</td>
-                            <td style="display:none;">{{ clone.box_plated_from }}</td>
-                            <td>{{ clone.collect_date|default_if_none:"&nbsp;" }}</td>
-                            <td>{{ clone.freeze_date|default_if_none:"&nbsp;" }}</td>
-                            <td>{{ clone.collect_method }}</td>
-                            <td style="display:none;">{{ clone.culture_method }}</td>
-                            <td>{{ clone.origin_soil_sample }}</td>
-                            <td style="display:none;">{{ clone.freezer_loc }}</td>
-                            <td style="display:none;">{{ clone.box_name }}</td>
-                            <td style="display:none;">{{ clone.box_initials }}</td>
-                            <td>{{ clone.is_clonal|default_if_none:"&nbsp;" }}</td>
-                            <td style="display:none;">{{ clone.viol_hap_grp }}</td>
-                            <td>{{ clone.sequenced }}</td>
-                            <td>{{ clone.is_amo|default_if_none:"&nbsp;" }}</td>
-                            <td>{{ clone.is_chlam|default_if_none:"&nbsp;" }}</td>
-                            <td style="display:none;">{{ clone.chlam_hap }}</td>
-                            <td style="display:none;">{{ clone.endo_hap_id }}</td>
-                            <td style="display:none;">{{ clone.endo_seq_hit }}</td>
-                            <td>{{ clone.burk_species }}</td>
+    <div class="row justify-content-center" style="padding: 0px 0px 15px 0px">
+        <div class="col-md-10" >
+            <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_clones.csv')">Export to CSV</button>
+            <div class="table-responsive-xl">
+                <table class="table table-sm table-bordered">
+                    <thead class="thead-light">
+                        <tr>    
+                            <th scope="col">QSID</th>
+                            <th scope="col">Alternate ID</th>
+                            <th scope="col">Species</th>
+                            <th scope="col">Origin Location</th>
+                            <th scope="col" style="display:none;">Origin Coordinates</th>
+                            <th scope="col" style="display:none;">Box Plated From</th>
+                            <th scope="col">Date Collected</th>
+                            <th scope="col">Date Frozen</th>
+                            <th scope="col">Collection Method</th>
+                            <th scope="col" style="display:none;">Culture Method</th>
+                            <th scope="col">Origin Soil Sample</th>
+                            <th scope="col" style="display:none;">Location in Freezer</th>
+                            <th scope="col" style="display:none;">Box Name</th>
+                            <th scope="col" style="display:none;">Box Initials</th>
+                            <th scope="col">Clonal</th>
+                            <th scope="col" style="display:none;">violHapGrp</th>
+                            <th scope="col">Sequenced</th>
+                            <th scope="col">Amoebophilis Endosymbiont</th>
+                            <th scope="col">Neochlamydia Endosymbiont</th>
+                            <th scope="col" style="display:none;">Neochlamydia Haplotype</th>
+                            <th scope="col" style="display:none;">Endosymbiont Haplotype ID</th>
+                            <th scope="col" style="display:none;">Endosymbiont 16S Sequence Hit</th>
+                            <th scope="col">Burkholderia Species</th>
                         </tr>
-                    {% endfor %}
-                </tbody>   
-            </table>
-            
+                    </thead>
+                    <tbody>
+                        {% for clone in clones %}  
+                            <tr>
+                                <td><a href="/clones/{{ clone.qs_id }}">{{ clone.qs_id }}</a></td>
+                                <td>{{ clone.alt_id }}</td>
+                                <td>{{ clone.species }}</td>
+                                <td>{{ clone.origin }}</td>
+                                <td style="display:none;">{{ clone.origin_coords }}</td>
+                                <td style="display:none;">{{ clone.box_plated_from }}</td>
+                                <td>{{ clone.collect_date|default_if_none:"&nbsp;" }}</td>
+                                <td>{{ clone.freeze_date|default_if_none:"&nbsp;" }}</td>
+                                <td>{{ clone.collect_method }}</td>
+                                <td style="display:none;">{{ clone.culture_method }}</td>
+                                <td>{{ clone.origin_soil_sample }}</td>
+                                <td style="display:none;">{{ clone.freezer_loc }}</td>
+                                <td style="display:none;">{{ clone.box_name }}</td>
+                                <td style="display:none;">{{ clone.box_initials }}</td>
+                                <td class="text-center">{{ clone.is_clonal|yesno:"✔,✖," }}</td>
+                                <td style="display:none;">{{ clone.viol_hap_grp }}</td>
+                                <td>{{ clone.sequenced }}</td>
+                                <td class="text-center">{{ clone.is_amo|yesno:"✔,✖," }}</td>
+                                <td class="text-center">{{ clone.is_chlam|yesno:"✔,✖," }}</td>
+                                <td style="display:none;">{{ clone.chlam_hap }}</td>
+                                <td style="display:none;">{{ clone.endo_hap_id }}</td>
+                                <td style="display:none;">{{ clone.endo_seq_hit }}</td>
+                                <td>{{ clone.burk_species }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>   
+                </table>      
+            </div>
             {% bootstrap_paginate clones range=5 show_first_last="true" %}
-            
         </div>
     </div>
 </div>

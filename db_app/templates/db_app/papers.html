@@ -3,8 +3,8 @@
 <div class="row">
     <div class="container-fluid" style="max-width:1800px">
         <div class="col-md-12">
-            <form class="form-inline ">
-                <input class="form-control form-control-sm w-20" type="text" placeholder="Search..." aria-label="Search">
+            <form class="form-inline" method="GET" action=".">
+                <input class="form-control form-control-sm w-20" type="text" name="paper_search" placeholder="Search..." aria-label="Search">
                 <input class="btn btn-dark btn-sm" type="submit" value="Submit">
             </form>
             <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_papers.csv')">Export to CSV</button>
