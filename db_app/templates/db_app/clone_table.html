@@ -1,4 +1,5 @@
 {% block clone_table %}
+{% load bootstrap_pagination %}
 
 <div class="container-fluid" style="max-width:1800px">
     <div class="col-md-12">
@@ -62,39 +63,9 @@
                     {% endfor %}
                 </tbody>   
             </table>
-            <nav aria-label="Clone table navigation">
-                {% if clones.has_other_pages %}
-                    <ul class="pagination">
-                        {% if clones.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ clones.previous_page_number }}">&laquo;</a>
-                            </li>
-                        {% else %}
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&laquo;</span></a>
-                            </li>
-                        {% endif %}
-                        {% for i in clones.paginator.page_range %}
-                            {% if clones.number == i %}
-                                <li class="page-item active">
-                                    <a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
-                                </li>
-                            {% else %}
-                                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                        {% if clones.has_next %}
-                            <li>
-                                <a class="page-link" href="?page={{ clones.next_page_number }}">&raquo;</a>
-                            </li>
-                        {% else %}
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&raquo;</span></a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                {% endif %}
-            </nav>
+            
+            {% bootstrap_paginate clones range=5 show_first_last="true" %}
+            
         </div>
     </div>
 </div>

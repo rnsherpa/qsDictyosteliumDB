@@ -1,4 +1,5 @@
 {% block paper_table %}
+{% load bootstrap_pagination %}
 
 <div class="table-responsive-xl">
     <table class="table table-sm">
@@ -25,39 +26,9 @@
             {% endfor %}
         </tbody>   
     </table>
-    <nav aria-label="Paper table navigation">
-        {% if papers.has_other_pages %}
-            <ul class="pagination">
-                {% if papers.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ papers.previous_page_number }}">&laquo;</a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&laquo;</span></a>
-                    </li>
-                {% endif %}
-                {% for i in papers.paginator.page_range %}
-                    {% if papers.number == i %}
-                        <li class="page-item active">
-                            <a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
-                        </li>
-                    {% else %}
-                        <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                {% if papers.has_next %}
-                    <li>
-                        <a class="page-link" href="?page={{ papers.next_page_number }}">&raquo;</a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&raquo;</span></a>
-                    </li>
-                {% endif %}
-            </ul>
-        {% endif %}
-    </nav>
+
+    {% bootstrap_paginate papers range=5 show_first_last="true" %}
+    
 </div>
 
 {% endblock paper_table %}
