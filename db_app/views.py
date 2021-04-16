@@ -29,7 +29,7 @@ def clones(request):
         cloneModel = cloneModel.filter(burk_species=burk_species_query)
 
     if amo_endo_query !='' and amo_endo_query is not None:
-        amo_bool = strtobool(amo_endo_query)
+        amo_bool = strtobool(amo_endo_query) # the html form sends over "True" or "False" as strings, so we need to convert them into booleans
         cloneModel = cloneModel.filter(is_amo=amo_bool)
     
     if chlam_endo_query!='' and chlam_endo_query is not None:
