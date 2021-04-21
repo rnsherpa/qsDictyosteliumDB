@@ -82,3 +82,11 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
+  .clonetable-text {
+    font-size: 13px;
+  }
+
+  .papertable-text {
+    font-size: 15px;
+  }
