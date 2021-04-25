@@ -1,4 +1,5 @@
 from distutils.util import strtobool
+from django.http import JsonResponse
 import csv
 from django.shortcuts import render
 from .models import Clone, Paper
@@ -106,6 +107,12 @@ def stats(request):
     paperCount = Clone.objects.annotate(num_papers=Count('paper')).order_by('-num_papers')[:20]
     context = {'paperCount': paperCount}
     return render(request, "db_app/stats.html", context)
+
+def counts_chart(request):
+    pass
+
+    return 
+
 
 def about(request):
     return render(request, "db_app/about.html")
