@@ -3,25 +3,39 @@
 {% block content %}
 
 <div class="container"> 
-    <div class="row">
+    <div class="row justify-content-between">
         <div class="col-md-7">
             <h3 class="mb-4">Welcome to qsDictyosteliumDB</h3>
             <h6 class="mb-3">This is a database of wild Dictyostelium clones and research articles associated with the Queller-Strassmann lab at Washington University in St. Louis.</h6>
-            <h6>You can look up detailed information on specific clones, filter through lists of clones based on a variety of parameters, and see what research each clone has been used in.</h6>
-            <div class="row justify-content-center mt-4">
-        <h4>Navigate to the Clones or Papers page to begin your search</h4>
+            <h6 class="mb-3">You can look up detailed information on specific clones, filter through lists of clones based on a variety of parameters, and see what research each clone has been used in.</h6>
+            <p>For a new experiment using D. discoideum, D. giganteum, D. mucoroides, D. purpureum, or Polysphondelium violaceum, there are a number of factors one might consider. This database will help you identify appropriate clones.</p>
+            <p>Here is a list of variables of possible interest about the social amoeba clones:</p>
+        
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/home_images/dicty_macroshot.jpg' %}" width="100%" alt="Macro image of the social amoeba Dictyostelium discoideum">
+        </div>
     </div>
-        <div class="row justify-content-center mt-2">   
-            <button type="button" class="btn btn-dark btn-lg mr-3">Clones</button>
-            <button type="button" class="btn btn-dark btn-lg ml-3">Papers</button>  
-        </div>
-        </div>
-        <div class="col-md-5">
-            <img src="{% static 'images/home_images/dicty_phylo.png' %}" width="100%" alt="Phylogenetic tree of wild Dictyostelium clones">
-        </div>
-    
+    <div class="row">
+        <ul>
+            <li>Does it carry Paraburkholderia agricolaris, Pa. hayleyella, or Pa. bonniea?</li>
+            <li>Does it carry endosymbionts Entamoeba, Amoebophilis, or Procabactor?</li>
+            <li>What other studies have used this clone?</li>
+            <li>Has it been sequenced? Twenty clones have good sequences and most of the others have rough sequences.</li>
+            <li>What is its mating type? There are three.</li>
+            <li>Where was it collected?</li>
+            <li>Where is it on the phylogeny?</li>
+            <li>Is there a fluorescently labeled clone available?</li>
+            <li>Is it a cheater? Note that this is a labile trait, not available for many clones.</li>
+        </ul>
     </div>
-    
+    <div class="row justify-content-center mt-5">
+        <h3>Navigate to the Clones or Papers page to begin your search</h3>
+    </div>
+    <div class="row justify-content-center mt-3">   
+        <button type="button" class="btn btn-dark btn-lg mr-3" onclick="location.href={% url 'db-clones' %}">Clones</button>
+        <button type="button" class="btn btn-dark btn-lg ml-3" onclick="location.href={% url 'db-papers' %}">Papers</button>  
+    </div>
 </div>
 
 {% endblock content %}
