@@ -1,1 +1,27 @@
 {% extends "db_app/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-7">
+            <h3 class="mb-4">Welcome to qsDictyosteliumDB</h3>
+            <h6 class="mb-3">This is a database of wild Dictyostelium clones and research articles associated with the Queller-Strassmann lab at Washington University in St. Louis.</h6>
+            <h6>You can look up detailed information on specific clones, filter through lists of clones based on a variety of parameters, and see what research each clone has been used in.</h6>
+            <div class="row justify-content-center mt-4">
+        <h4>Navigate to the Clones or Papers page to begin your search</h4>
+    </div>
+        <div class="row justify-content-center mt-2">   
+            <button type="button" class="btn btn-dark btn-lg mr-3">Clones</button>
+            <button type="button" class="btn btn-dark btn-lg ml-3">Papers</button>  
+        </div>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'images/home_images/dicty_phylo.png' %}" width="100%" alt="Phylogenetic tree of wild Dictyostelium clones">
+        </div>
+    
+    </div>
+    
+</div>
+
+{% endblock content %}
