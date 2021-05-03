@@ -10,7 +10,7 @@
             </div>
             <div class="col">
                 <div class="float-right">
-                    <h5>Species: {{ clone.species }}</h5>
+                    <h5>Species: <i>{{ clone.species }}</i></h5>
                 </div>
             </div>
         </div>    
@@ -34,7 +34,7 @@
 <div class="container-fluid" style="max-width:1800px">
     <div class="col-md-12" style="padding: 0px 0px 15px 0px">
         <div class="d-flex justify-content-between">
-            <p>Associated papers:</p>
+            <h6>Associated papers:</h6>
             <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_papers.csv')">Export to CSV</button>
         </div>
 
