@@ -24,6 +24,7 @@
                             <th scope="col" style="display:none;">Box Name</th>
                             <th scope="col" style="display:none;">Box Initials</th>
                             <th scope="col">Clonal</th>
+                            <th scope="col">Mating Type</th>
                             <th scope="col" style="display:none;">violHapGrp</th>
                             <th scope="col">Sequenced</th>
                             <th scope="col">Amoebophilis Endosymbiont</th>
@@ -52,6 +53,7 @@
                                 <td style="display:none;">{{ clone.box_name }}</td>
                                 <td style="display:none;">{{ clone.box_initials }}</td>
                                 <td class="text-center">{{ clone.is_clonal|yesno:"✔,✖," }}</td>
+                                <td class="text-center">{{ clone.mating_type }}</td>
                                 <td style="display:none;">{{ clone.viol_hap_grp }}</td>
                                 <td>{{ clone.sequenced }}</td>
                                 <td class="text-center">{{ clone.is_amo|yesno:"✔,✖," }}</td>
