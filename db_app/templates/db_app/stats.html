@@ -1,12 +1,12 @@
 {% extends "db_app/base.html" %}
+{% load static %}
 {% block content %}
 
 <div class="container">    
     <div class="content-section">
-        <h6>Most used clones (by appearances in papers): </h6>
-        {% for clone in paperCount %}
-            <li><a href="/clones/{{ clone.qs_id }}">{{ clone }}</a>: {{ clone.num_papers }}</li>
-        {% endfor %}
+        <div>
+            <canvas id="counts-chart" data-url="{% url 'counts-chart' %}"></canvas>
+        </div>
     </div>
 </div>
 
