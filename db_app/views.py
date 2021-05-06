@@ -19,6 +19,7 @@ def clones(request):
     amo_endo_query = request.GET.get('amo_endo')
     chlam_endo_query = request.GET.get('chlam_endo')
     mating_type_query = request.GET.get('mating_type')
+    min_papers_query = request.GET.get('min_papers')
 
     # we only want to filter if we are receiving filter entries
     if clone_id_query !='' and clone_id_query is not None:
@@ -40,6 +41,9 @@ def clones(request):
     
     if mating_type_query!='' and mating_type_query is not None:
         cloneModel = cloneModel.filter(mating_type=int(mating_type_query))
+
+    if min_papers_query!='' and min_papers_query is not None:
+        cloneModel = cloneModel.annotate(num_papers=Count('paper')).filter(num_papers__gte=int(min_papers_query)).order_by('index')
 
     page = request.GET.get('page', 1)
     paginator = Paginator(cloneModel, 10) # 10 clones per page
@@ -108,8 +112,6 @@ def dynamic_paper_view(request, index):
     return render(request, "db_app/paper_details.html", context)
 
 def stats(request):
-    # paperCount = Clone.objects.annotate(num_papers=Count('paper')).order_by('-num_papers')[:20]
-    # context = {'paperCount': paperCount}
     return render(request, "db_app/stats.html")
 
 def counts_chart(request):
