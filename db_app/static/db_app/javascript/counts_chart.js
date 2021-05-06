@@ -13,20 +13,22 @@ $(function () {
             data: {
             labels: data.labels,
             datasets: [{
-                label: 'Clone',
+                label: 'Count',
                 backgroundColor: 'grey',
                 data: data.data
             }]          
             },
             options: {
-            responsive: true,
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Top 20 clones (by apprearances in papers)'
-            }
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: true,
+                        text: 'Top 20 clones (by apprearances in papers)'
+                    }
+                }
             }
         });
 
