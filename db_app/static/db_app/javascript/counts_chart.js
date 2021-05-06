@@ -26,7 +26,7 @@ $(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Top 20 clones (by apprearances in papers)'
+                        text: 'Top 20 clones (by appearances in papers)'
                     }
                 }
             }
