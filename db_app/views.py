@@ -18,6 +18,7 @@ def clones(request):
     burk_species_query = request.GET.get('burk_species')
     amo_endo_query = request.GET.get('amo_endo')
     chlam_endo_query = request.GET.get('chlam_endo')
+    mating_type_query = request.GET.get('mating_type')
 
     # we only want to filter if we are receiving filter entries
     if clone_id_query !='' and clone_id_query is not None:
@@ -36,6 +37,9 @@ def clones(request):
     if chlam_endo_query!='' and chlam_endo_query is not None:
         chlam_bool = strtobool(chlam_endo_query)
         cloneModel = cloneModel.filter(is_chlam=chlam_bool)
+    
+    if mating_type_query!='' and mating_type_query is not None:
+        cloneModel = cloneModel.filter(mating_type=int(mating_type_query))
 
     page = request.GET.get('page', 1)
     paginator = Paginator(cloneModel, 10) # 10 clones per page
