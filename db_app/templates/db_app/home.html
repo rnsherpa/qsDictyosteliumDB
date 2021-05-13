@@ -36,6 +36,14 @@
         <button type="button" class="btn btn-dark btn-lg mr-3" onclick="location.href={% url 'db-clones' %}">Clones</button>
         <button type="button" class="btn btn-dark btn-lg ml-3" onclick="location.href={% url 'db-papers' %}">Papers</button>  
     </div>
+    <div class="row">
+        <div class="col">
+            <div style="height: 300px">
+                <canvas id="counts-chart" data-url="{% url 'counts-chart' %}"></canvas>
+            </div>
+        </div>
+     </div>
+
 </div>
 
 {% endblock content %}

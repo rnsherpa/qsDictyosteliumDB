@@ -20,13 +20,22 @@ $(function () {
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
+                scaleShowValues: true,
+                scales: {
+                    x: {
+                    ticks: {
+                        autoSkip: false
+                    }
+                    }
+                },
                 plugins: {
                     legend: {
                         display: false,
                     },
                     title: {
                         display: true,
-                        text: 'Top 20 clones (by appearances in papers)'
+                        text: 'Top 50 clones (by appearances in papers)'
                     }
                 }
             }

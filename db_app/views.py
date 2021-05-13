@@ -118,14 +118,11 @@ def dynamic_paper_view(request, index):
     context = {'paper': paper, 'clones': clones}
     return render(request, "db_app/paper_details.html", context)
 
-def stats(request):
-    return render(request, "db_app/stats.html")
-
 def counts_chart(request):
     labels = []
     data = []
 
-    queryset = Clone.objects.annotate(num_papers=Count('paper')).order_by('-num_papers')[:20]
+    queryset = Clone.objects.annotate(num_papers=Count('paper')).order_by('-num_papers')[:50]
     for entry in queryset:
         labels.append(entry.qs_id)
         data.append(entry.num_papers)
