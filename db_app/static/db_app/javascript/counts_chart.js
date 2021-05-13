@@ -11,12 +11,12 @@ $(function () {
         new Chart(ctx, {
             type: 'bar',
             data: {
-            labels: data.labels,
-            datasets: [{
-                label: 'Count',
-                backgroundColor: 'grey',
-                data: data.data
-            }]          
+                labels: data.labels,
+                datasets: [{
+                    label: 'Count',
+                    backgroundColor: 'grey',
+                    data: data.data
+                }]          
             },
             options: {
                 responsive: true,
@@ -24,9 +24,19 @@ $(function () {
                 scaleShowValues: true,
                 scales: {
                     x: {
-                    ticks: {
-                        autoSkip: false
-                    }
+                        title: {
+                            display: true,
+                            text: 'Clone'
+                        },
+                        ticks: {
+                            autoSkip: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Count'
+                        }
                     }
                 },
                 plugins: {

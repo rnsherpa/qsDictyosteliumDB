@@ -16,33 +16,35 @@
             <img src="{% static 'images/home_images/dicty_macroshot.jpg' %}" width="100%" alt="Macro image of the social amoeba Dictyostelium discoideum">
         </div>
     </div>
-    <div class="row">
-        <ul>
-            <li>Does it carry <i>Paraburkholderia agricolaris</i>, <i>Pa. hayleyella</i>, or <i>Pa. bonniea?</i></li>
-            <li>Does it carry endosymbionts <i>Entamoeba</i>, <i>Amoebophilis</i>, or <i>Procabactor</i>?</li>
-            <li>What other studies have used this clone?</li>
-            <li>Has it been sequenced? Twenty clones have good sequences and most of the others have rough sequences.</li>
-            <li>What is its mating type? There are three.</li>
-            <li>Where was it collected?</li>
-            <li>Where is it on the phylogeny?</li>
-            <li>Is there a fluorescently labeled clone available?</li>
-            <li>Is it a cheater? Note that this is a labile trait, not available for many clones.</li>
-        </ul>
+    <div class="row justify-content-between">
+        <div class="col-md-7">    
+            <ul>
+                <li>Does it carry <i>Paraburkholderia agricolaris</i>, <i>Pa. hayleyella</i>, or <i>Pa. bonniea?</i></li>
+                <li>Does it carry endosymbionts <i>Entamoeba</i>, <i>Amoebophilis</i>, or <i>Procabactor</i>?</li>
+                <li>What other studies have used this clone?</li>
+                <li>Has it been sequenced? Twenty clones have good sequences and most of the others have rough sequences.</li>
+                <li>What is its mating type? There are three.</li>
+                <li>Where was it collected?</li>
+                <li>Where is it on the phylogeny?</li>
+                <li>Is there a fluorescently labeled clone available?</li>
+                <li>Is it a cheater? Note that this is a labile trait, not available for many clones.</li>
+            </ul>
+        </div>    
+        <div class="col-md-4 my-auto">
+            <h5 class="text-center">Navigate to the Clones or Papers page to begin your search</h3>
+            <div class="row justify-content-center mt-3">   
+                <button type="button" class="btn btn-dark btn-lg mr-2" onclick="location.href={% url 'db-clones' %}">Clones</button>
+                <button type="button" class="btn btn-dark btn-lg ml-2" onclick="location.href={% url 'db-papers' %}">Papers</button>  
+            </div>
+        </div>
     </div>
-    <div class="row justify-content-center mt-5">
-        <h3>Navigate to the Clones or Papers page to begin your search</h3>
-    </div>
-    <div class="row justify-content-center mt-3">   
-        <button type="button" class="btn btn-dark btn-lg mr-3" onclick="location.href={% url 'db-clones' %}">Clones</button>
-        <button type="button" class="btn btn-dark btn-lg ml-3" onclick="location.href={% url 'db-papers' %}">Papers</button>  
-    </div>
-    <div class="row">
+    <div class="row mt-2">
         <div class="col">
             <div style="height: 300px">
                 <canvas id="counts-chart" data-url="{% url 'counts-chart' %}"></canvas>
             </div>
         </div>
-     </div>
+    </div>
 
 </div>
 
