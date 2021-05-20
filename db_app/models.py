@@ -25,7 +25,7 @@ class Clone(models.Model):
     chlam_hap = models.CharField("Neochlamydia Haplotype", max_length=10, blank=True)
     endo_hap_id = models.CharField("Endosymbiont Haplotype ID", max_length=50, blank=True)
     endo_seq_hit = models.CharField("Endosymbiont 16S Sequence Hit", max_length=100, blank=True)
-    burk_species = models.CharField("Burkholderia Species", max_length=50, blank=True)
+    burk_species = models.CharField("Paraburkholderia Species", max_length=50, blank=True)
     
 
     class Meta: 

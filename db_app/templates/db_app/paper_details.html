@@ -13,12 +13,24 @@
                 </div>
             </div>
         </div>    
-        <div>
-            <p>{{ paper.first_author }}</p>
-            <p>{{ paper.last_author }}</p>
-            <p>{{ paper.journal }}</p>
-            <p>{{ paper.year }}</p>
-        </div>    
+        <table class="table table-sm clonetable-text">
+            <tr>
+                <td>First Author</td>
+                <td>{{ paper.first_author }}</td>
+            </tr>    
+            <tr>
+                <td>Last Author</td>
+                <td>{{ paper.last_author }}</td>
+            </tr>
+            <tr>
+                <td>Journal</td>
+                <td>{{ paper.journal }}</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>{{ paper.year }}</td>
+            </tr>
+        </table>    
     </div>
 </div>        
 

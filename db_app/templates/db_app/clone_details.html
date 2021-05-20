@@ -14,20 +14,94 @@
                 </div>
             </div>
         </div>    
-        <div>
-            <p>{{ clone.origin }}</p>
-            <p>{{ clone.origin_coords }}</p>
-            <p>{{ clone.box_plated_from }}</p>
-            <p>{{ clone.collect_date }}</p>
-            <p>{{ clone.freeze_date }}</p>
-            <p>{{ clone.collect_method }}</p>
-            <p>{{ clone.culture_method }}</p>
-            <p>{{ clone.origin_soil_sample }}</p>
-            <p>{{ clone.is_clonal }}</p>
-            <p>{{ clone.freezer_loc }}</p>
-            <p>{{ clone.box_name }}</p>
-            <p>{{ clone.box_initials }}</p>
-        </div>    
+        <table class="table table-sm table-striped clonetable-text">
+            <tbody>
+                <tr>
+                    <td>Origin Location</td>
+                    <td>{{ clone.origin }}</td>
+                </tr>
+                <tr>
+                    <td>Origin Coordinates</td>
+                    <td>{{ clone.origin_coords }}</td>
+                </tr>
+                <tr>
+                    <td>Box Plated From</td>
+                    <td>{{ clone.box_plated_from }}</td>
+                </tr>
+                <tr>
+                    <td>Date Collected</td>
+                    <td>{{ clone.collect_date }}</td>
+                </tr>
+                <tr>
+                    <td>Date Frozen</td>
+                    <td>{{ clone.freeze_date }}</td>
+                </tr>
+                <tr>
+                    <td>Collection Method</td>
+                    <td>{{ clone.collect_method }}</td>
+                </tr>
+                <tr>
+                    <td>Culture Method</td>
+                    <td>{{ clone.culture_method }}</td>
+                </tr>
+                <tr>
+                    <td>Original Soil Sample</td>
+                    <td>{{ clone.origin_soil_sample }}</td>
+                </tr>
+                <tr>
+                    <td>Is Clonal</td>
+                    <td>{{ clone.is_clonal }}</td>
+                </tr>
+                <tr>
+                    <td>Mating Type</td>
+                    <td>{{ clone.mating_type|default_if_none:"&nbsp;" }}</td>
+                </tr>
+                <tr>
+                    <td>Freezer Location</td>
+                    <td>{{ clone.freezer_loc }}</td>
+                </tr>
+                <tr>
+                    <td>Box Name</td>
+                    <td>{{ clone.box_name }}</td>
+                </tr>
+                <tr>
+                    <td>Box Initials</td>
+                    <td>{{ clone.box_initials }}</td>
+                </tr>
+                <tr>
+                    <td>Viol Haplotype Group</td>
+                    <td>{{ clone.viol_hap_grp }}</td>
+                </tr>
+                <tr>
+                    <td>Sequenced</td>
+                    <td>{{ clone.sequenced }}</td>
+                </tr>
+                <tr>
+                    <td>Amoebophilis Endosymbiont</td>
+                    <td>{{ clone.is_amo }}</td>
+                </tr>
+                <tr>
+                    <td>Neochlamydia Endosymbiont</td>
+                    <td>{{ clone.is_chlam }}</td>
+                </tr>
+                <tr>
+                    <td>Neochlamydia Haplotype</td>
+                    <td>{{ clone.chlam_hap }}</td>
+                </tr>
+                <tr>
+                    <td>Endosymbiont Haplotype ID</td>
+                    <td>{{ clone.endo_hap_id }}</td>
+                </tr>
+                <tr>
+                    <td>Endosymbiont 16S Sequence Hit</td>
+                    <td>{{ clone.endo_seq_hit }}</td>
+                </tr>
+                <tr>
+                    <td>Paraburkholderia Species</td>
+                    <td>{{ clone.burk_species }}</td>
+                </tr>
+            </tbody>    
+        </table>    
     </div>
 </div>        
 
