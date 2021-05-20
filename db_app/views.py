@@ -70,11 +70,12 @@ def clones(request):
 def papers(request):
     paperModel = Paper.objects.all()
 
-    # receive search entry
-    paper_id_query = request.GET.get('paper_search')
+    if request.method == 'GET':
+        # receive search entry
+        paper_query = request.GET.get('paper_search')
 
-    if paper_id_query !='' and paper_id_query is not None:
-        paperModel = paperModel.filter(title__icontains=paper_id_query)
+        if paper_query !='' and paper_query is not None:
+            paperModel = paperModel.filter(Q(title__icontains=paper_query) | Q(first_author__icontains=paper_query))
 
     page = request.GET.get('page', 1)
     paginator = Paginator(paperModel, 10) # 10 clones per page
