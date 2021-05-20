@@ -18,7 +18,7 @@ class Clone(models.Model):
     box_initials = models.CharField("Box Initials", max_length=20, blank=True)
     is_clonal = models.BooleanField("Is Clonal", blank=True, null=True)
     mating_type = models.PositiveIntegerField("Mating Type", blank=True, null=True) 
-    viol_hap_grp = models.CharField("vio.hap.grp", max_length=10, blank=True)
+    viol_hap_grp = models.CharField("viol.hap.grp", max_length=10, blank=True)
     sequenced = models.CharField("Sequenced", max_length=20, blank=True)
     is_amo = models.BooleanField("Amoebophilis Endosymbiont", blank=True, null=True)
     is_chlam = models.BooleanField("Neochlamydia Endosymbiont", blank=True, null=True)
@@ -27,7 +27,6 @@ class Clone(models.Model):
     endo_seq_hit = models.CharField("Endosymbiont 16S Sequence Hit", max_length=100, blank=True)
     burk_species = models.CharField("Paraburkholderia Species", max_length=50, blank=True)
     
-
     class Meta: 
         ordering = ['index']
 
