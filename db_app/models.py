@@ -36,7 +36,7 @@ class Clone(models.Model):
 
 class Paper(models.Model):
     index = models.AutoField(primary_key=True)
-    doi = models.CharField("DOI", max_length=100, unique=True)
+    doi = models.CharField("DOI", max_length=100, blank=True)
     title = models.TextField()
     first_author = models.CharField("First Author", max_length=50)
     last_author = models.CharField("Last Author", max_length=50)
