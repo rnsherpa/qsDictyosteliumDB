@@ -1,121 +1,117 @@
-{% extends "db_app/base.html" %}
-{% block content %}
+{% extends "db_app/base.html" %} {% block content %}
 
-<div class="container">    
-    <div class="content-section">
-        <div class="row">    
-            <div class="col">
-                <h3>{{ clone.qs_id }}</h3>
-                <p>(Alternate ID: {{ clone.alt_id }})</p>
-            </div>
-            <div class="col">
-                <div class="float-right">
-                    <h5>Species: <i>{{ clone.species }}</i></h5>
-                </div>
-            </div>
-        </div>    
-        <table class="table table-sm table-striped clonetable-text">
-            <tbody>
-                <tr>
-                    <td>Origin Location</td>
-                    <td>{{ clone.origin }}</td>
-                </tr>
-                <tr>
-                    <td>Origin Coordinates</td>
-                    <td>{{ clone.origin_coords }}</td>
-                </tr>
-                <tr>
-                    <td>Box Plated From</td>
-                    <td>{{ clone.box_plated_from }}</td>
-                </tr>
-                <tr>
-                    <td>Date Collected</td>
-                    <td>{{ clone.collect_date }}</td>
-                </tr>
-                <tr>
-                    <td>Date Frozen</td>
-                    <td>{{ clone.freeze_date }}</td>
-                </tr>
-                <tr>
-                    <td>Collection Method</td>
-                    <td>{{ clone.collect_method }}</td>
-                </tr>
-                <tr>
-                    <td>Culture Method</td>
-                    <td>{{ clone.culture_method }}</td>
-                </tr>
-                <tr>
-                    <td>Original Soil Sample</td>
-                    <td>{{ clone.origin_soil_sample }}</td>
-                </tr>
-                <tr>
-                    <td>Is Clonal</td>
-                    <td>{{ clone.is_clonal }}</td>
-                </tr>
-                <tr>
-                    <td>Mating Type</td>
-                    <td>{{ clone.mating_type|default_if_none:"&nbsp;" }}</td>
-                </tr>
-                <tr>
-                    <td>Freezer Location</td>
-                    <td>{{ clone.freezer_loc }}</td>
-                </tr>
-                <tr>
-                    <td>Box Name</td>
-                    <td>{{ clone.box_name }}</td>
-                </tr>
-                <tr>
-                    <td>Box Initials</td>
-                    <td>{{ clone.box_initials }}</td>
-                </tr>
-                <tr>
-                    <td>Viol Haplotype Group</td>
-                    <td>{{ clone.viol_hap_grp }}</td>
-                </tr>
-                <tr>
-                    <td>Sequenced</td>
-                    <td>{{ clone.sequenced }}</td>
-                </tr>
-                <tr>
-                    <td>Amoebophilis Endosymbiont</td>
-                    <td>{{ clone.is_amo }}</td>
-                </tr>
-                <tr>
-                    <td>Neochlamydia Endosymbiont</td>
-                    <td>{{ clone.is_chlam }}</td>
-                </tr>
-                <tr>
-                    <td>Neochlamydia Haplotype</td>
-                    <td>{{ clone.chlam_hap }}</td>
-                </tr>
-                <tr>
-                    <td>Endosymbiont Haplotype ID</td>
-                    <td>{{ clone.endo_hap_id }}</td>
-                </tr>
-                <tr>
-                    <td>Endosymbiont 16S Sequence Hit</td>
-                    <td>{{ clone.endo_seq_hit }}</td>
-                </tr>
-                <tr>
-                    <td>Paraburkholderia Species</td>
-                    <td>{{ clone.burk_species }}</td>
-                </tr>
-            </tbody>    
-        </table>    
-    </div>
-</div>        
+<div class="container">
+	<div class="content-section">
+		<div class="row">
+			<div class="col">
+				<h3>{{ clone.qs_id }}</h3>
+				<p>(Alternate ID: {{ clone.alt_id }})</p>
+			</div>
+			<div class="col">
+				<div class="float-right">
+					<h5>Species: <i>{{ clone.species }}</i></h5>
+				</div>
+			</div>
+		</div>
+		<table class="table table-sm table-striped clonetable-text">
+			<tbody>
+				<tr>
+					<td>Origin Location</td>
+					<td>{{ clone.origin }}</td>
+				</tr>
+				<tr>
+					<td>Origin Coordinates</td>
+					<td>{{ clone.origin_coords }}</td>
+				</tr>
+				<tr>
+					<td>Box Plated From</td>
+					<td>{{ clone.box_plated_from }}</td>
+				</tr>
+				<tr>
+					<td>Date Collected</td>
+					<td>{{ clone.collect_date }}</td>
+				</tr>
+				<tr>
+					<td>Date Frozen</td>
+					<td>{{ clone.freeze_date }}</td>
+				</tr>
+				<tr>
+					<td>Collection Method</td>
+					<td>{{ clone.collect_method }}</td>
+				</tr>
+				<tr>
+					<td>Culture Method</td>
+					<td>{{ clone.culture_method }}</td>
+				</tr>
+				<tr>
+					<td>Original Soil Sample</td>
+					<td>{{ clone.origin_soil_sample }}</td>
+				</tr>
+				<tr>
+					<td>Is Clonal</td>
+					<td>{{ clone.is_clonal }}</td>
+				</tr>
+				<tr>
+					<td>Mating Type</td>
+					<td>{{ clone.mating_type|default_if_none:"&nbsp;" }}</td>
+				</tr>
+				<tr>
+					<td>Freezer Location</td>
+					<td>{{ clone.freezer_loc }}</td>
+				</tr>
+				<tr>
+					<td>Box Name</td>
+					<td>{{ clone.box_name }}</td>
+				</tr>
+				<tr>
+					<td>Box Initials</td>
+					<td>{{ clone.box_initials }}</td>
+				</tr>
+				<tr>
+					<td>Viol Haplotype Group</td>
+					<td>{{ clone.viol_hap_grp }}</td>
+				</tr>
+				<tr>
+					<td>Sequenced</td>
+					<td>{{ clone.sequenced }}</td>
+				</tr>
+				<tr>
+					<td>Amoebophilis Endosymbiont</td>
+					<td>{{ clone.is_amo }}</td>
+				</tr>
+				<tr>
+					<td>Neochlamydia Endosymbiont</td>
+					<td>{{ clone.is_chlam }}</td>
+				</tr>
+				<tr>
+					<td>Neochlamydia Haplotype</td>
+					<td>{{ clone.chlam_hap }}</td>
+				</tr>
+				<tr>
+					<td>Endosymbiont Haplotype ID</td>
+					<td>{{ clone.endo_hap_id }}</td>
+				</tr>
+				<tr>
+					<td>Endosymbiont 16S Sequence Hit</td>
+					<td>{{ clone.endo_seq_hit }}</td>
+				</tr>
+				<tr>
+					<td>Paraburkholderia Species</td>
+					<td>{{ clone.burk_species }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 
-<div class="container-fluid" style="max-width:1800px">
-    <div class="col-md-12" style="padding: 0px 0px 15px 0px">
-        <div class="d-flex justify-content-between">
-            <h6>Associated papers:</h6>
-            <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_papers.csv')">Export to CSV</button>
-        </div>
+<div class="container-fluid" style="max-width: 1800px">
+	<div class="col-md-12" style="padding: 0px 0px 15px 0px">
+		<div class="d-flex justify-content-between">
+			<h6>Associated papers:</h6>
+			<a class="btn btn-outline-success btn-sm btn float-right" href="{% url 'papers-using-clone-csv' qs_id=clone.qs_id %}" role="button">Export to CSV</a>
+		</div>
 
-        {% block paper_table %}
-            {% include "db_app/paper_table.html" %}
-        {% endblock %}
-        
-    </div>
-</div>  
+		{% block paper_table %} {% include "db_app/paper_table.html" %} {% endblock %}
+	</div>
+</div>
 {% endblock content %}

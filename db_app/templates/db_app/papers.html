@@ -1,19 +1,15 @@
-{% extends "db_app/base.html" %}
-{% block content %}    
-<div class="container-fluid" style="max-width:1800px">   
-    <div class="row justify-content-center">
-        <div class="col-md-11">
-            <form class="form-inline" method="GET" action=".">
-                <input class="form-control form-control-sm w-20" type="text" name="paper_search" placeholder="Search..." aria-label="Search">
-                <input class="btn btn-dark btn-sm" type="submit" value="Submit">
-            </form>
-            <button type="button" class="btn btn-outline-success btn-sm btn float-right" onclick="tableToCSV('qs_papers.csv')">Export to CSV</button>
-            
-            {% block paper_table %}
-                {% include "db_app/paper_table.html" %}
-            {% endblock %}
-            
-        </div>
-    </div>
-</div>        
+{% extends "db_app/base.html" %} {% block content %}
+<div class="container-fluid" style="max-width: 1800px">
+	<div class="row justify-content-center">
+		<div class="col-md-11">
+			<form class="form-inline" method="GET" action=".">
+				<input class="form-control form-control-sm w-20" type="text" name="paper_search" placeholder="Search..." aria-label="Search" />
+				<input class="btn btn-dark btn-sm" type="submit" value="Submit" />
+			</form>
+			<a class="btn btn-outline-success btn-sm btn float-right" href="{% url 'papers-csv' %}?{{ request.GET.urlencode }}" role="button">Export to CSV</a>
+
+			{% block paper_table %} {% include "db_app/paper_table.html" %} {% endblock %}
+		</div>
+	</div>
+</div>
 {% endblock content %}

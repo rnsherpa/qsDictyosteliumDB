@@ -1,41 +1,45 @@
-{% extends "db_app/base.html" %}
-{% block content %}
+{% extends "db_app/base.html" %} {% block content %}
 
-<div class="container">    
-    <div class="content-section">
-        <div class="row">    
-            <div class="col">
-                <h5>{{ paper.title }}</h5>
-            </div>
-            <div class="col">
-                <div class="float-right">
-                    <h5><a href="{{ paper.doi }}" target="_blank" rel="noopener">Link to article</a></h5>
-                </div>
-            </div>
-        </div>    
-        <table class="table table-sm clonetable-text">
-            <tr>
-                <td>First Author</td>
-                <td>{{ paper.first_author }}</td>
-            </tr>    
-            <tr>
-                <td>Last Author</td>
-                <td>{{ paper.last_author }}</td>
-            </tr>
-            <tr>
-                <td>Journal</td>
-                <td>{{ paper.journal }}</td>
-            </tr>
-            <tr>
-                <td>Year</td>
-                <td>{{ paper.year }}</td>
-            </tr>
-        </table>    
-    </div>
-</div>        
+<div class="container">
+	<div class="content-section">
+		<div class="row">
+			<div class="col">
+				<h5>{{ paper.title }}</h5>
+			</div>
+			<div class="col">
+				<div class="float-right">
+					<h5><a href="{{ paper.doi }}" target="_blank" rel="noopener">Link to article</a></h5>
+				</div>
+			</div>
+		</div>
+		<table class="table table-sm clonetable-text">
+			<tr>
+				<td>First Author</td>
+				<td>{{ paper.first_author }}</td>
+			</tr>
+			<tr>
+				<td>Last Author</td>
+				<td>{{ paper.last_author }}</td>
+			</tr>
+			<tr>
+				<td>Journal</td>
+				<td>{{ paper.journal }}</td>
+			</tr>
+			<tr>
+				<td>Year</td>
+				<td>{{ paper.year }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
 
-{% block clone_table %}
-    {% include "db_app/clone_table.html" %}
-{% endblock %}
+<div class="container-fluid" style="max-width: 1800px">
+	<div class="row justify-content-center" style="padding: 0px 0px 15px 0px">
+		<div class="col-md-9">
+			<a class="btn btn-outline-success btn-sm btn float-right" href="{% url 'clones-in-paper-csv' index=paper.index %}" role="button">Export to CSV</a>
+			{% block clone_table %} {% include "db_app/clone_table.html" %} {% endblock %}
+		</div>
+	</div>
+</div>
 
 {% endblock content %}

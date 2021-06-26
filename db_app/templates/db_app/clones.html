@@ -1,112 +1,115 @@
-{% extends "db_app/base.html" %}
-{% block content %}
+{% extends "db_app/base.html" %} {% block content %}
 
-<div class="container">    
-    <div class="content-section">
-        <form method="GET" action=".">
-            <div class="row">
-                <div class="col-3">
-                    <div class="form-group">
-                        <h6>Species</h6>
-                        <div class="card" style="width:16rem;height:9rem;">
-                            <div class="overflow-auto">
-                                <div class="card-body">
-                                    {% for species in speciesList %}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ species.species }}" id="{{ species.species }}" name="dicty_species">
-                                            <label class="form-check-label" style="font-size: small;" for="{{ species.species }}">{{ species.species }}</label>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <h6>Paraburkholderia Symbiont</h6>
-                        <div class="card" style="width:16rem;height:9rem;">   
-                            <div class="overflow-auto">
-                                <div class="card-body">
-                                    {% for burkSpecies in burkList %}
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="{{ burkSpecies.burk_species }}" id="{{ burkSpecies.burk_species }}" name="burk_species">
-                                        <label class="form-check-label" style="font-size: small;" for="{{ burkSpecies.burk_species }}">{{ burkSpecies.burk_species }}</label>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>    
-                        </div>    
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-4">
-                        <div class="form-group">
-                            <h6>Mating Type</h6>
-                            <div class="form-check" style="margin-left: 15px">
-                                <input class="form-check-input" type="checkbox" value="1" id="mating_1" name="mating_type">
-                                <label class="form-check-label" style="font-size: medium;" for="1">1</label>
-                            </div>
-                            <div class="form-check" style="margin-left: 15px">    
-                                <input class="form-check-input" type="checkbox" value="2" id="mating_2" name="mating_type">
-                                <label class="form-check-label" style="font-size: medium;" for="2">2</label>
-                            </div>
-                            <div class="form-check" style="margin-left: 15px">    
-                                <input class="form-check-input" type="checkbox" value="3" id="mating_3" name="mating_type">
-                                <label class="form-check-label" style="font-size: medium;" for="3">3</label>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <h6>Amoebophilis Endosymbiont</h6>
-                                <div class="form-check">
-                                    <input class="form-radio-input" type="radio" value="True" id="amo_true" name="amo_endo">
-                                    <label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="true">Yes</label>
-                                    <input class="form-radio-input" type="radio" value="False" id="amo_false" name="amo_endo">
-                                    <label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="false">No</label>
-                                    <input class="form-radio-input" type="radio" value="" id="amo_none" name="amo_endo">
-                                    <label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="none">N/A</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <h6>Neochlamydia Endosymbiont</h6>
-                                <div class="form-check">
-                                    <input class="form-radio-input" type="radio" value="True" id="chlam_true" name="chlam_endo">
-                                    <label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="true">Yes</label>
-                                    <input class="form-radio-input" type="radio" value="False" id="chlam_false" name="chlam_endo">
-                                    <label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="false">No</label>
-                                    <input class="form-radio-input" type="radio" value="" id="chlam_none" name="chlam_endo">
-                                    <label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="none">N/A</label>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>   
-                    <div class="row justify-content-center">
-                        <div class="col-7">
-                            <div class="input-group input-group-sm">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="prepend-text">Used in</span>
-                                </div>
-                                <input type="number" class="form-control" placeholder="0" id="min_papers" name="min_papers" min="0" max="999">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="append-text">or more papers</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div> 
-                <div class="col-1 align-self-end">
-                    <button type="submit" class="btn btn-secondary float-right">Filter</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>   
+<div class="container">
+	<div class="content-section">
+		<form method="GET" action=".">
+			<div class="row">
+				<div class="col-3">
+					<div class="form-group">
+						<h6>Species</h6>
+						<div class="card" style="width: 16rem; height: 9rem">
+							<div class="overflow-auto">
+								<div class="card-body">
+									{% for species in speciesList %}
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="{{ species.species }}" id="{{ species.species }}" name="dicty_species" />
+										<label class="form-check-label" style="font-size: small" for="{{ species.species }}">{{ species.species }}</label>
+									</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="form-group">
+						<h6>Paraburkholderia Symbiont</h6>
+						<div class="card" style="width: 16rem; height: 9rem">
+							<div class="overflow-auto">
+								<div class="card-body">
+									{% for burkSpecies in burkList %}
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="{{ burkSpecies.burk_species }}" id="{{ burkSpecies.burk_species }}" name="burk_species" />
+										<label class="form-check-label" style="font-size: small" for="{{ burkSpecies.burk_species }}">{{ burkSpecies.burk_species }}</label>
+									</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row">
+						<div class="col-4">
+							<div class="form-group">
+								<h6>Mating Type</h6>
+								<div class="form-check" style="margin-left: 15px">
+									<input class="form-check-input" type="checkbox" value="1" id="mating_1" name="mating_type" />
+									<label class="form-check-label" style="font-size: medium" for="1">1</label>
+								</div>
+								<div class="form-check" style="margin-left: 15px">
+									<input class="form-check-input" type="checkbox" value="2" id="mating_2" name="mating_type" />
+									<label class="form-check-label" style="font-size: medium" for="2">2</label>
+								</div>
+								<div class="form-check" style="margin-left: 15px">
+									<input class="form-check-input" type="checkbox" value="3" id="mating_3" name="mating_type" />
+									<label class="form-check-label" style="font-size: medium" for="3">3</label>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<h6>Amoebophilis Endosymbiont</h6>
+								<div class="form-check">
+									<input class="form-radio-input" type="radio" value="True" id="amo_true" name="amo_endo" />
+									<label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="true">Yes</label>
+									<input class="form-radio-input" type="radio" value="False" id="amo_false" name="amo_endo" />
+									<label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="false">No</label>
+									<input class="form-radio-input" type="radio" value="" id="amo_none" name="amo_endo" />
+									<label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="none">N/A</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<h6>Neochlamydia Endosymbiont</h6>
+								<div class="form-check">
+									<input class="form-radio-input" type="radio" value="True" id="chlam_true" name="chlam_endo" />
+									<label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="true">Yes</label>
+									<input class="form-radio-input" type="radio" value="False" id="chlam_false" name="chlam_endo" />
+									<label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="false">No</label>
+									<input class="form-radio-input" type="radio" value="" id="chlam_none" name="chlam_endo" />
+									<label class="form-radio-label" style="font-size: medium; margin-right: 10px" for="none">N/A</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-7">
+							<div class="input-group input-group-sm">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="prepend-text">Used in</span>
+								</div>
+								<input type="number" class="form-control" placeholder="0" id="min_papers" name="min_papers" min="0" max="999" />
+								<div class="input-group-append">
+									<span class="input-group-text" id="append-text">or more papers</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-1 align-self-end">
+					<button type="submit" class="btn btn-secondary float-right">Filter</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 
-{% block clone_table %}
-    {% include "db_app/clone_table.html" %}
-{% endblock %}
-
+<div class="container-fluid" style="max-width: 1800px">
+	<div class="row justify-content-center" style="padding: 0px 0px 15px 0px">
+		<div class="col-md-9">
+			<a class="btn btn-outline-success btn-sm btn float-right" href="{% url 'clones-csv' %}?{{ request.GET.urlencode }}" role="button">Export to CSV</a>
+			{% block clone_table %} {% include "db_app/clone_table.html" %} {% endblock %}
+		</div>
+	</div>
+</div>
 {% endblock content %}
